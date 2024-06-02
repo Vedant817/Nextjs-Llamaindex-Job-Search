@@ -34,8 +34,8 @@ export default function Home() {
         </button>
       </form>
       <div className="w-[300px] md:w-[600px] flex flex-col">
-        {messages.map((i, _) => (
-          <Markdown message={i.content} index={_} />
+        {messages.map((message, index) => (
+          <Markdown key={index} message={message.content} index={index} />
         ))}
       </div>
       <div className="mt-8 w-full">&nbsp;</div>
@@ -43,7 +43,7 @@ export default function Home() {
   );
 }
 
-{/* 
+{/*
   The reactive messages array which contains the conversation between the user and AI.
   The reactive input value inserted by user into the input field.
   The handleInputChange method to make sure the input value is in sync with the changes.
